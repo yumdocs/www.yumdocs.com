@@ -39,18 +39,34 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        // Will be passed to @docusaurus/plugin-content-blog (false to disable)
+        /*
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`,
+        },
+        */
+        // Will be passed to @docusaurus/plugin-content-docs (false to disable)
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`,
         },
-        /* blog:
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`,
-        },*/
+        // Will be passed to @docusaurus/plugin-google-analytics (only enabled when explicitly specified)
+        // googleAnalytics: {},
+        // Will be passed to @docusaurus/plugin-google-gtag (only enabled when explicitly specified)
+        gtag: {
+          trackingID: 'GTM-MDB69DD',
+          anonymizeIP: false,
+        },
+        // Will be passed to @docusaurus/plugin-content-pages (false to disable)
+        // pages: {},
+        // Will be passed to @docusaurus/plugin-content-sitemap (false to disable)
+        // sitemap: {},
+        // Will be passed to @docusaurus/theme-classic.
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
