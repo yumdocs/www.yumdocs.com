@@ -1,10 +1,13 @@
 name: Deploy to Github Pages
 
+# TODO: Consider publishing on gh release
+# on:
+#   release:
+#     types: [created]
 on:
-  # Only run when pushing to master branch
   push:
-    branches:
-      - master
+    tags:
+      - '*'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
