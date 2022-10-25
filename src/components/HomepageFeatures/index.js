@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Yumdocs empowers your Office documents with a template engine that automatically generates documents with merged data.
+        Yumdocs empowers your Word, PowerPoint and Excel documents with a template engine, which automatically generates Office documents with merged data.
       </>
     ),
   },
@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Yumdocs spares the chores of copy-pasting and filling repetitive documents. Name the placeholders and we'll do the filling.
+        Yumdocs spares the chores and errors of copy-pasting and filling repetitive documents. Name the placeholders and Yumdocs does the filling.
       </>
     ),
   },
@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Yumdocs is coded, tested and packaged to run in nodeJS and web browsers.
+        Yumdocs is coded, tested and packaged to run in Javascript environments including nodeJS and web browsers.
       </>
     ),
   },
