@@ -45,7 +45,7 @@ const config = {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`,
+          editUrl: `https://github.com/${organizationName}/${projectName}/tree/master/`,
         },
         */
         // Will be passed to @docusaurus/plugin-content-docs (false to disable)
@@ -53,7 +53,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`,
+          editUrl: `https://github.com/${organizationName}/${projectName}/tree/master/`,
         },
         // Will be passed to @docusaurus/plugin-google-analytics (only enabled when explicitly specified)
         // googleAnalytics: {},
@@ -141,7 +141,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Memba Sarl`,
+        copyright: `Copyright © ${new Date().getFullYear()} Jacques L. Chereau - All rights reserved.`,
       },
       prism: {
         theme: lightCodeTheme,
