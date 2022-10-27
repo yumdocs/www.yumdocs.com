@@ -18,7 +18,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Yumdocs Tutorial - 5min ⏱️
+              Yumdocs Tutorial - 5min ⏱️
           </Link>
         </div>
       </div>
@@ -26,12 +26,12 @@ function HomepageHeader() {
   );
 }
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={siteConfig.title}
-      description={siteConfig.tagline}>
+        title={siteConfig.title}
+        description={siteConfig.tagline}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />

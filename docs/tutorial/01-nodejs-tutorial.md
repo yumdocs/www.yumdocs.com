@@ -25,7 +25,7 @@ npm i @yumdocs/yumdocs
 
 2) In the same project directory, create a file named `index.mjs` and copy-paste:
 
-```js
+```js title=index.mjs
 import {YumTemplate} from '@yumdocs/yumdocs';
 const t = new YumTemplate();
 await t.load('./input.docx');

@@ -48,7 +48,6 @@ const config = {
           editUrl: `https://github.com/${organizationName}/${projectName}/tree/master/`,
         },
         */
-        // Will be passed to @docusaurus/plugin-content-docs (false to disable)
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
@@ -75,44 +74,44 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      navbar: {
-        title: 'Yumdocs',
-        logo: {
-          alt: 'Yumdocs Logo',
-          src: 'img/logo.svg',
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+      ({
+        navbar: {
+          title: 'Yumdocs',
+          logo: {
+            alt: 'Yumdocs Logo',
+            src: 'img/logo.svg',
+          },
+          items: [
+            {
+              type: 'doc',
+              docId: 'intro',
+              position: 'left',
+              label: 'Documentation',
+            },
+            /* {to: '/blog', label: 'Blog', position: 'left'}, */
+            {
+              href: 'https://github.com/yumdocs/yumdocs',
+              label: 'GitHub',
+              position: 'right',
+            },
+          ],
         },
-        items: [
-          {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Documentation',
-          },
-          /* {to: '/blog', label: 'Blog', position: 'left'}, */
-          {
-            href: 'https://github.com/yumdocs/yumdocs',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Documentation',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [/*
+        footer: {
+          style: 'dark',
+          links: [
+            {
+              title: 'Docs',
+              items: [
+                {
+                  label: 'Documentation',
+                  to: '/docs/intro',
+                },
+              ],
+            },
+            {
+              title: 'Community',
+              items: [/*
               {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/docusaurus',
@@ -121,33 +120,33 @@ const config = {
                 label: 'Discord',
                 href: 'https://discordapp.com/invite/docusaurus',
               },*/
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/yumdocs',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              /* {
-                label: 'Blog',
-                to: '/blog',
-              }, */
-              {
-                label: 'GitHub',
-                href: 'https://github.com/yumdocs/yumdocs',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Jacques L. Chereau - All rights reserved.`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-    }),
+                {
+                  label: 'Twitter',
+                  href: 'https://twitter.com/yumdocs',
+                },
+              ],
+            },
+            {
+              title: 'More',
+              items: [
+                /* {
+                  label: 'Blog',
+                  to: '/blog',
+                }, */
+                {
+                  label: 'GitHub',
+                  href: 'https://github.com/yumdocs/yumdocs',
+                },
+              ],
+            },
+          ],
+          copyright: `Copyright © ${new Date().getFullYear()} Jacques L. Chereau - All rights reserved.`,
+        },
+        prism: {
+          theme: lightCodeTheme,
+          darkTheme: darkCodeTheme,
+        },
+      }),
 };
 
 module.exports = config;

@@ -20,14 +20,13 @@ npm i -g @yumdocs/yumdocs-cli
 
 1) Create a Word document named `input.docx`, type `{{field}}` and save it in the project directory.
 
-2) Create a file named `data.json`, and copy-paste:
+2) In the same project directory, create a file named `data.json`, and copy-paste:
 
 ```json
 {
   "field": "Anything you see fit"
 }
 ```
-Save it in the project directory, along with `input.docx`.
 
 3) Open a terminal window in the project directory and run `yumdocs ./input.docx ./data.json ./output.docx`.
 
