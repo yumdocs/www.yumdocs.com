@@ -11,7 +11,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
     {
         title: 'Easy to Use',
-        Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+        Svg: require('@site/static/img/easy_to_use.svg').default,
         description: (
             <>
                 Yumdocs empowers your Word, PowerPoint and Excel documents with a template engine, which automatically generates Office documents with merged data.
@@ -20,7 +20,7 @@ const FeatureList: FeatureItem[] = [
     },
     {
         title: 'Saves time',
-        Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+        Svg: require('@site/static/img/saves_time.svg').default,
         description: (
             <>
                 Yumdocs spares the chores and errors of copy-pasting and filling repetitive documents. Name the placeholders and Yumdocs does the filling.
@@ -29,7 +29,7 @@ const FeatureList: FeatureItem[] = [
     },
     {
         title: 'Powered by JavaScript',
-        Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+        Svg: require('@site/static/img/powered_by.svg').default,
         description: (
             <>
                 Yumdocs is coded, tested and packaged to run in Javascript environments including nodeJS and web browsers.
