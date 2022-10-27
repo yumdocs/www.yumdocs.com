@@ -5,16 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-.browserWindow {
-  border: 3px solid var(--ifm-color-emphasis-200);
+.wordWindow {
+  /* border: 3px solid var(--ifm-color-emphasis-200); */
+  border: 3px solid #0078d4;
   border-radius: var(--ifm-global-radius);
   box-shadow: var(--ifm-global-shadow-lw);
   margin-bottom: var(--ifm-leading);
 }
 
-.browserWindowHeader {
+.wordWindowHeader {
   align-items: center;
-  background: var(--ifm-color-emphasis-200);
+  /* background: var(--ifm-color-emphasis-200); */
+  background: #0078d4;
   display: flex;
   padding: 0.5rem 1rem;
 }
@@ -38,20 +40,22 @@
   --ifm-background-color: #fff;
 }
 
-.browserWindowAddressBar {
+.wordWindowTitle {
   flex: 1 0;
   margin: 0 1rem 0 0.5rem;
-  border-radius: 12.5px;
-  background-color: var(--ifm-background-color);
-  color: var(--ifm-color-gray-800);
+  /* border-radius: 12.5px; */
+  /* background-color: var(--ifm-background-color); */
+  color: #fff;
   padding: 5px 15px;
   font: 400 13px Arial, sans-serif;
   user-select: none;
 }
 
-[data-theme='dark'] .browserWindowAddressBar {
+/*
+[data-theme='dark'] .wordWindowTitle {
   color: var(--ifm-color-gray-300);
 }
+*/
 
 .dot {
   margin-right: 6px;
@@ -63,7 +67,8 @@
   display: inline-block;
 }
 
-.browserWindowMenuIcon {
+/*
+.wordWindowMenuIcon {
   margin-left: auto;
 }
 
@@ -74,22 +79,22 @@
   margin: 3px 0;
   display: block;
 }
+*/
 
-.browserWindowBody {
-  /* background-color: var(--ifm-background-color); */
-  border-bottom-left-radius: inherit;
-  border-bottom-right-radius: inherit;
+.wordWindowBody {
+  /* border-bottom-left-radius: inherit;*/
+  border-bottom-left-radius: 2px;
+  /* border-bottom-right-radius: inherit;*/
+  border-bottom-right-radius: 2px;
   padding: 1rem;
 }
 
-/* Ensure the window has the same background as code blocks in light theme */
-[data-theme='light'] .browserWindowBody {
+[data-theme='light'] .wordWindowBody {
   /* background-color: var(--ifm-background-color); */
   background-color: var(--ifm-pre-background);
 }
 
-/* Ensure the window has the same background as code blocks in dark theme */
-[data-theme='dark'] .browserWindowBody {
+[data-theme='dark'] .wordWindowBody {
   --prism-color: #F8F8F2;
   --prism-background-color: #282A36;
 
@@ -98,11 +103,14 @@
   color: var(--prism-color);
 }
 
-.browserWindowBody *:last-child {
-  margin-bottom: 0;
+/* Match the padding of code blocks */
+.wordWindowContent {
+  font: inherit;
+  min-width: 100%;
+  padding: var(--ifm-pre-padding);
 }
 
-/* Remove the shadow on code blocks */
-.browserWindowBody [class*="theme-code-block"] {
-  box-shadow: none !important;
+/* .wordWindowBody *:last-child { */
+.wordWindowContent *:last-child {
+  margin-bottom: 0;
 }

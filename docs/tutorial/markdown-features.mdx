@@ -167,5 +167,43 @@ import TabItem from '@theme/TabItem';
 import BrowserWindow from '@site/src/components/BrowserWindow'
 
 <BrowserWindow>
-test
+
+```js
+console.log('hello');
+```
+
 </BrowserWindow>
+
+```mdx-code-block
+<BrowserWindow>
+```
+
+```jsx title="/src/components/HelloCodeTitle.js"
+function HelloCodeTitle(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+```mdx-code-block
+</BrowserWindow>
+```
+
+## TerminalWindow
+
+import TerminalWindow from '@site/src/components/TerminalWindow'
+
+<TerminalWindow>
+
+<pre>
+console.log('hello');
+</pre>
+
+</TerminalWindow>
+
+## WordWindow
+
+import WordWindow from '@site/src/components/WordWindow'
+
+<WordWindow>
+test
+</WordWindow>
