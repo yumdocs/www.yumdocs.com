@@ -19,7 +19,7 @@ const FeatureList: FeatureItem[] = [
         ),
     },
     {
-        title: 'Saves time',
+        title: 'Saves Time',
         Svg: require('@site/static/img/saves_time.svg').default,
         description: (
             <>
