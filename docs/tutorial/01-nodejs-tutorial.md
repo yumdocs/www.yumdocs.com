@@ -68,7 +68,7 @@ node index.mjs
 
 :::tip Tip
 
-Change the value of **"main"** for `index.mjs` in `package.json` and run `node .`.
+Change the value of **"main"** for `index.mjs` in `package.json` to run `node .` instead.
 
 :::
 
