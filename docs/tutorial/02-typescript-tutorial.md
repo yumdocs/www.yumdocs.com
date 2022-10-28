@@ -15,7 +15,7 @@ import WordWindow from '@site/src/components/WordWindow';
 
 :::
 
-### Prerequisites
+## Prerequisites
 
 Download and install nodeJS v16+ from https://nodejs.org/.
 
@@ -25,7 +25,7 @@ run `node --version` from a terminal window to confirm installation.
 
 :::
 
-### Installation
+## Installation
 
 Create a project directory, make it your working directory, and run from a terminal window:
 
@@ -48,7 +48,7 @@ Also note that you do not have to install type declarations, which are packaged 
 
 :::
 
-### Getting started
+## Getting started
 
 1) Create a Word document named `input.docx`, type `{{field}}` and save it in the project directory.
 
