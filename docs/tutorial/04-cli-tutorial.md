@@ -7,9 +7,23 @@ import WordWindow from '@site/src/components/WordWindow';
 
 # CLI Tutorial
 
+> Merge Office documents with data from the command line with zero code.
+
+:::tip Tip
+
+[Download a Zip of tutorial files](./assets/04-cli-tutorial.zip).
+
+:::
+
 ### Prerequisites
 
 Download and install nodeJS v16+ from https://nodejs.org/.
+
+:::tip Tip
+
+run `node --version` from a terminal window to confirm installation.
+
+:::
 
 ### Installation
 
@@ -39,12 +53,12 @@ npm i -g @yumdocs/yumdocs-cli
 }
 ```
 
-3) Open a terminal window in the project directory and run `yumdocs ./input.docx ./data.json ./output.docx`.
+3) Open a terminal window in the project directory and run `yumdocs input.docx data.json output.docx`.
 
 <TerminalWindow>
 
 ```
-yumdocs ./input.docx ./data.json ./output.docx
+yumdocs input.docx data.json output.docx
 ```
 
 </TerminalWindow>

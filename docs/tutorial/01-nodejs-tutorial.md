@@ -7,11 +7,23 @@ import WordWindow from '@site/src/components/WordWindow';
 
 # NodeJS Tutorial
 
-> Only 5 lines of code to merge an Office document with a JSON object. 
+> Only 5 lines of code to merge an Office document with a JSON object.
+
+:::tip Tip
+
+[Download a Zip of tutorial files](./assets/01-nodejs-tutorial.zip).
+
+::: 
 
 ### Prerequisites
 
 Download and install nodeJS v16+ from https://nodejs.org/.
+
+:::tip Tip
+
+run `node --version` from a terminal window to confirm installation.
+
+:::
 
 ### Installation
 
@@ -53,6 +65,12 @@ node index.mjs
 ```
 
 </TerminalWindow>
+
+:::tip Tip
+
+Change the value of **"main"** for `index.mjs` in `package.json` and run `node .`.
+
+:::
 
 4) `output.docx` has been generated and the `{{field}}` placeholder has been replaced with `Anything you see fit`.
 

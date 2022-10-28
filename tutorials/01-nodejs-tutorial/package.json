@@ -1,0 +1,15 @@
+{
+  "name": "01-nodejs-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@yumdocs/yumdocs": "^0.1.0"
+  }
+}
