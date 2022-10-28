@@ -56,7 +56,7 @@ await t.render({field: 'Anything you see fit'});
 await t.saveAs('./output.docx');
 ```
 
-3) Open a terminal window in this project directory and run `node index.mjs`.
+3) Open a terminal window in this project directory and run:
 
 <TerminalWindow>
 

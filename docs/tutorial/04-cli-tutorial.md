@@ -53,7 +53,7 @@ npm i -g @yumdocs/yumdocs-cli
 }
 ```
 
-3) Open a terminal window in the project directory and run `yumdocs input.docx data.json output.docx`.
+3) Open a terminal window in the project directory and run:
 
 <TerminalWindow>
 
