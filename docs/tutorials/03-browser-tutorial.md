@@ -22,7 +22,7 @@ Use a modern/recent browser like Google Chrome.
 
 :::tip Tip
 
-We do not need a web server to complete this tutorial but you may consider [https://www.npmjs.com/package/http-server].
+You do not need a web server to complete this tutorial, but you may consider [http-server](https://www.npmjs.com/package/http-server).
 
 :::
 
@@ -99,7 +99,7 @@ We do not need a web server to complete this tutorial but you may consider [http
 
 ![index.html](./assets/03-browser-tutorial.png)
 
-5) We now need to add some JavaScript to read the textarea and the file input 
+5) You now need to add some JavaScript to read the textarea and the file input 
 in order to generate a merged document upon clicking the `Go` button:
 
 ```html showLineNumbers {23-76} title=index.html
