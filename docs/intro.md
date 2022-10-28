@@ -8,7 +8,7 @@ sidebar_position: 1
 
 :::tip Tutorial
 
-Go to the [tutorial](./tutorial/01-nodejs-tutorial.md) to discover **Yumdocs in less than 5 minutes**.
+Go to the first [tutorial](./tutorials/01-nodejs-tutorial.md) to discover **Yumdocs in less than 5 minutes**.
 
 :::
 
