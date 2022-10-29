@@ -40,7 +40,6 @@ export default function BrowserWindow({
           </div>
         </div>
       </div>
-
       <div className={styles.browserWindowBody}>{children}</div>
     </div>
   );

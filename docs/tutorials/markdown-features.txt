@@ -162,6 +162,35 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
+## Details
+
+<details>
+<summary>Config files also support config creator functions and async code.</summary>
+
+```js title="docusaurus.config.js"
+module.exports = function configCreator() {
+  return {
+    // site config...
+  };
+};
+```
+
+```js title="docusaurus.config.js"
+module.exports = async function configCreatorAsync() {
+  return {
+    // site config...
+  };
+};
+```
+
+```js title="docusaurus.config.js"
+module.exports = Promise.resolve({
+  // site config...
+});
+```
+
+</details>
+
 ## BrowserWindow
 
 import BrowserWindow from '@site/src/components/BrowserWindow'

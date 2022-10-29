@@ -16,7 +16,7 @@ interface Props {
   title: string;
 }
 
-export default function terminalWindow({
+export default function TerminalWindow({
   children,
   minHeight,
   title = 'Terminal',
