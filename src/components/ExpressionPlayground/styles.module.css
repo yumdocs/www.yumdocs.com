@@ -169,8 +169,8 @@
     color: var(--ifm-color-primary-lightest);
 }
 
-
 .expressionPlayGroundResult {
+    background: none;
     font-family: monospace;
     font-size: 13px;
     padding: 0;

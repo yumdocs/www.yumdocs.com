@@ -33,7 +33,7 @@ export default function ExpressionPlayground({
         text = err.message;
     }
     const [cmValue, setCmValue] = React.useState(text);
-    const resElement = React.useRef<HTMLDivElement>();
+    const resElement = React.useRef<HTMLPreElement>();
     React.useEffect(() => {
         const evaluate = async() => {
             const context = JSON.parse(cmValue);
@@ -89,7 +89,7 @@ export default function ExpressionPlayground({
                     <input className={styles.expressionPlayGroundInput} type="text" value={expValue} onChange={(evt) => { setExpValue(evt.target.value); }}/>
                     <div className={styles.expressionPlayGroundSectionTitle}>Result:</div>
                     <div className={"alert alert--success"} role="alert">
-                        <div ref={resElement} className={styles.expressionPlayGroundResult}></div>
+                        <pre ref={resElement} className={styles.expressionPlayGroundResult}></pre>
                     </div>
                 </div>
             </div>
