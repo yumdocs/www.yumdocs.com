@@ -5,10 +5,10 @@ import {default as lottie, RendererType} from 'lottie-web';
 import styles from './styles.module.css';
 
 interface Props {
-    autoplay: boolean;
-    loop: boolean;
+    autoplay?: boolean;
+    loop?: boolean;
     path: string;
-    renderer: RendererType;
+    renderer?: RendererType;
 }
 
 export default function Lottie({autoplay = true, loop = true, path, renderer = 'svg'}: Props) {

@@ -26,7 +26,7 @@ function HomepageHeader() {
                 </div>
               </div>
               <div className="col col--6">
-                  <Lottie path={require('@site/static/lottie/data.png').default}/>
+                  <Lottie path={require('@site/static/img/lottie.png').default}/>
               </div>
           </div>
       </div>
