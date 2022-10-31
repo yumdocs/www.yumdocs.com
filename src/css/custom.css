@@ -24,9 +24,6 @@
   --ifm-color-primary-lightest: #ff2c7f;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-
-  /* Created by JLC - same as --ifm-navbar-background-color in dark mode */
-  --ifm-color-gray-850: #242526;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -48,7 +45,4 @@
   --ifm-color-primary-lighter: #ff6ba6;
   --ifm-color-primary-lightest: #ff9bc2;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-
-  /* Created by JLC - same as --ifm-navbar-background-color in dark mode */
-  /* --ifm-footer-background-color: red; */
 }
