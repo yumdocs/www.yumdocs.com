@@ -8,6 +8,14 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  min-height: 400px;
+  background: radial-gradient(
+          200% 100% at top right,
+          var(--ifm-color-primary-darkest) 36%,
+          var(--ifm-color-primary) 100%,
+          var(--ifm-background-color) 1%
+  )
 }
 
 @media screen and (max-width: 996px) {
