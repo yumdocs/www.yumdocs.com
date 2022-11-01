@@ -2,9 +2,9 @@ import React from 'react';
 // import clsx from 'clsx';
 import {EditorState} from 'prosemirror-state';
 import {EditorView} from 'prosemirror-view';
-import { /*Schema, */ DOMParser as Parser} from 'prosemirror-model';
+import { Schema, DOMParser as Parser} from 'prosemirror-model';
 import {schema} from 'prosemirror-schema-basic';
-// import {addListNodes} from 'prosemirror-schema-list';
+import {addListNodes} from 'prosemirror-schema-list';
 import {exampleSetup} from 'prosemirror-example-setup';
 
 import 'prosemirror-view/style/prosemirror.css';
@@ -27,10 +27,11 @@ interface Props {
 function ProseMirror({ height = '200px', onChange = undefined, value = '<p>Hello World</p>' }: Props, ref) {
     const proseMirrorElement = React.useRef<HTMLDivElement>();
 
-    // const mySchema = new Schema({
-    //     nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block"),
-    //     marks: schema.spec.marks
-    // });
+    // Add ordered and unordered lists
+    const mySchema = new Schema({
+        nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block"),
+        marks: schema.spec.marks
+    });
 
     let doc;
     try {
@@ -44,10 +45,8 @@ function ProseMirror({ height = '200px', onChange = undefined, value = '<p>Hello
         // proseMirrorElement.current,
         {
             state: EditorState.create({
-                // doc: Parser.fromSchema(mySchema).parse(doc),
-                doc: Parser.fromSchema(schema).parse(doc),
-                // plugins: exampleSetup({schema: mySchema, menuBar: false})
-                plugins: exampleSetup({schema, menuBar: false})
+                doc: Parser.fromSchema(mySchema).parse(doc),
+                plugins: exampleSetup({schema: mySchema, menuBar: false})
             }),
             // onChange event
             // https://discuss.prosemirror.net/t/event-when-editor-updated-used-to-be-onaction/607
