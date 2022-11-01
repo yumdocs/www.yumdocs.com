@@ -1,0 +1,247 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.yumdocsPlayground {
+
+}
+
+.yumdocsPlaygroundRow {
+    display: flex;
+    gap: 1rem;
+}
+
+.yumdocsPlaygroundCol {
+    flex: 50%;
+}
+
+/**
+ * Word Editor
+ */
+
+
+.yumdocsPlaygroundWord {
+    /* border: 3px solid var(--ifm-color-emphasis-200); */
+    border: 3px solid #0078d4;
+    border-radius: var(--ifm-global-radius);
+    box-shadow: var(--ifm-global-shadow-lw);
+    margin-bottom: var(--ifm-leading);
+}
+
+.yumdocsPlaygroundWordHeader {
+    align-items: center;
+    /* background: var(--ifm-color-emphasis-200); */
+    background: #0078d4;
+    display: flex;
+    padding: 0.5rem 1rem;
+}
+
+.row::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.buttons {
+    white-space: nowrap;
+}
+
+.right {
+    align-self: center;
+    width: 10%;
+}
+
+[data-theme='light'] {
+    --ifm-background-color: #fff;
+}
+
+.yumdocsPlaygroundWordTitle {
+    flex: 1 0;
+    margin: 0 1rem 0 0.5rem;
+    /* border-radius: 12.5px; */
+    /* background-color: var(--ifm-background-color); */
+    color: #fff;
+    padding: 5px 15px;
+    font: 400 13px Arial, sans-serif;
+    user-select: none;
+}
+
+/*
+[data-theme='dark'] .yumdocsPlaygroundWordTitle {
+  color: var(--ifm-color-gray-300);
+}
+*/
+
+.dot {
+    margin-right: 6px;
+    margin-top: 4px;
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/*
+.yumdocsPlaygroundWordMenuIcon {
+  margin-left: auto;
+}
+
+.bar {
+  width: 17px;
+  height: 3px;
+  background-color: #aaa;
+  margin: 3px 0;
+  display: block;
+}
+*/
+
+.yumdocsPlaygroundWordBody {
+    /* border-bottom-left-radius: inherit;*/
+    border-bottom-left-radius: 2px;
+    /* border-bottom-right-radius: inherit;*/
+    border-bottom-right-radius: 2px;
+    padding: 1rem;
+}
+
+[data-theme='light'] .yumdocsPlaygroundWordBody {
+    /* background-color: var(--ifm-background-color); */
+    background-color: var(--ifm-pre-background);
+}
+
+[data-theme='dark'] .yumdocsPlaygroundWordBody {
+    --prism-color: #F8F8F2;
+    --prism-background-color: #282A36;
+
+    /* background-color: var(--ifm-background-color); */
+    background-color: var(--prism-background-color);
+    color: var(--prism-color);
+}
+
+/* Match the padding of code blocks */
+.yumdocsPlaygroundWordContent {
+    font: inherit;
+    min-width: 100%;
+    padding: var(--ifm-pre-padding);
+}
+
+/* .yumdocsPlaygroundWordBody *:last-child { */
+.yumdocsPlaygroundWordContent *:last-child {
+    margin-bottom: 0;
+}
+
+
+/**
+ * Json Editor
+ */
+
+.yumdocsPlaygroundJson {
+    border: 3px solid var(--ifm-color-emphasis-200);
+    border-radius: var(--ifm-global-radius);
+    box-shadow: var(--ifm-global-shadow-lw);
+    margin-bottom: var(--ifm-leading);
+}
+
+.yumdocsPlaygroundJsonHeader {
+    align-items: center;
+    background: var(--ifm-color-emphasis-200);
+    display: flex;
+    padding: 0.5rem 1rem;
+}
+
+/*
+.row::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.buttons {
+    white-space: nowrap;
+}
+
+.right {
+    align-self: center;
+    width: 10%;
+}
+
+[data-theme='light'] {
+    --ifm-background-color: #fff;
+}
+*/
+
+.yumdocsPlaygroundJsonTitle {
+    flex: 1 0;
+    margin: 0 1rem 0 0.5rem;
+    /* border-radius: 12.5px; */
+    /* background-color: var(--ifm-background-color); */
+    color: var(--ifm-color-gray-800);
+    padding: 5px 15px;
+    font: 400 13px Arial, sans-serif;
+    user-select: none;
+}
+
+[data-theme='dark'] .yumdocsPlaygroundJsonTitle {
+  color: var(--ifm-color-gray-300);
+}
+
+.dot {
+    margin-right: 6px;
+    margin-top: 4px;
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/*
+.yumdocsPlaygroundMenuIcon {
+  margin-left: auto;
+}
+
+.bar {
+  width: 17px;
+  height: 3px;
+  background-color: #aaa;
+  margin: 3px 0;
+  display: block;
+}
+*/
+
+.yumdocsPlaygroundJsonBody {
+    /* border-bottom-left-radius: inherit;*/
+    border-bottom-left-radius: 2px;
+    /* border-bottom-right-radius: inherit;*/
+    border-bottom-right-radius: 2px;
+    padding: 1rem;
+}
+
+[data-theme='light'] .yumdocsPlaygroundJsonBody {
+    /* background-color: var(--ifm-background-color); */
+    background-color: var(--ifm-pre-background);
+}
+
+[data-theme='dark'] .yumdocsPlaygroundJsonBody {
+    --prism-color: #F8F8F2;
+    --prism-background-color: #282A36;
+
+    /* background-color: var(--ifm-background-color); */
+    background-color: var(--prism-background-color);
+    color: var(--prism-color);
+}
+
+/* Match the padding of code blocks */
+.yumdocsPlaygroundJsonContent {
+    font: inherit;
+    min-width: 100%;
+    padding: var(--ifm-pre-padding);
+}
+
+/* .yumdocsPlaygroundBody *:last-child { */
+.yumdocsPlaygroundJsonContent *:last-child {
+    margin-bottom: 0;
+}

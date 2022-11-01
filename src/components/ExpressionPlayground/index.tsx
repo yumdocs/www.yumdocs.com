@@ -1,8 +1,7 @@
 import React from 'react';
 import clsx from "clsx";
 import jexl from 'jexl';
-import CodeMirror from '@uiw/react-codemirror';
-import {json as jsonLanguage} from "@codemirror/lang-json";
+import CodeMirror from '@site/src/components/CodeMirror';
 
 import styles from './styles.module.css';
 
@@ -33,7 +32,7 @@ export default function ExpressionPlayground({
         text = err.message;
     }
     const [cmValue, setCmValue] = React.useState(text);
-    const resElement = React.useRef<HTMLPreElement>();
+    const alertElement = React.useRef<HTMLPreElement>();
     React.useEffect(() => {
         const evaluate = async() => {
             const context = JSON.parse(cmValue);
@@ -42,13 +41,13 @@ export default function ExpressionPlayground({
         }
         evaluate()
             .then((res) => {
-                const {current} = resElement;
+                const {current} = alertElement;
                 current.textContent = res;
                 current.parentElement.classList.remove('alert--danger');
                 current.parentElement.classList.add('alert--success');
             })
             .catch((err) => {
-                const {current} = resElement;
+                const {current} = alertElement;
                 current.textContent = err.message;
                 current.parentElement.classList.remove('alert--success');
                 current.parentElement.classList.add('alert--danger');
@@ -83,13 +82,12 @@ export default function ExpressionPlayground({
                     <CodeMirror
                         value={cmValue}
                         height={height}
-                        extensions={[jsonLanguage()]}
-                        onChange={(value, viewUpdate) => { setCmValue(value); }} />
+                        onChange={(e: { value: string }) => { setCmValue(e.value); }} />
                     <div className={styles.expressionPlayGroundSectionTitle}>Expression:&nbsp;</div>
                     <input className={styles.expressionPlayGroundInput} type="text" value={expValue} onChange={(evt) => { setExpValue(evt.target.value); }}/>
                     <div className={styles.expressionPlayGroundSectionTitle}>Result:</div>
                     <div className={"alert alert--success"} role="alert">
-                        <pre ref={resElement} className={styles.expressionPlayGroundResult}></pre>
+                        <pre ref={alertElement} className={styles.expressionPlayGroundResult}></pre>
                     </div>
                 </div>
             </div>
