@@ -6,32 +6,26 @@ import CodeMirror from '@site/src/components/CodeMirror';
 import styles from './styles.module.css';
 
 interface Props {
-    children: typeof React.Children;
+    data: string;
     expression: string;
     height: string;
     title: string;
 }
 
-const getNodeText = (node) => {
-    if (['string', 'number'].includes(typeof node)) return node;
-    if (node instanceof Array) return node.map(getNodeText).join('');
-    if (typeof node === 'object' && node) return getNodeText(node.props.children);
-}
-
 export default function ExpressionPlayground({
-   children,
+   data = '{"field":"Anything you see fit"}',
    expression = 'field',
    height = '200px',
    title = 'Expression Playground'
 }: Props): JSX.Element {
     const [expValue, setExpValue] = React.useState(expression);
-    let text = getNodeText(children).replace(/^\/\s*([\s\S]*)\s*\/$/m, '$1');
+    let json;
     try {
-        text = JSON.stringify(JSON.parse(text), null, 2); // prettify
+        json = JSON.stringify(JSON.parse(data), null, 2); // prettify
     } catch (err) {
-        text = err.message;
+        json = err.message;
     }
-    const [cmValue, setCmValue] = React.useState(text);
+    const [cmValue, setCmValue] = React.useState(json);
     const alertElement = React.useRef<HTMLPreElement>();
     React.useEffect(() => {
         const evaluate = async() => {
