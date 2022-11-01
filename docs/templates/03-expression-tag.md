@@ -1,9 +1,9 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 import YumdocsPlayground from '@site/src/components/YumdocsPlayground';
-import {stringData, stringInput} from '@site/src/data/02-expression-tag.ts'
+import {stringData, stringInput} from '@site/src/data/03-expression-tag.ts'
 
 # Expression Tag
 

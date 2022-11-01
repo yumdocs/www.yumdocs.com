@@ -1,9 +1,9 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 import YumdocsPlayground from '@site/src/components/YumdocsPlayground';
-import {eachData, eachInput} from '@site/src/data/04-each-tag.ts'
+import {eachData, eachInput} from '@site/src/data/05-each-tag.ts'
 
 # Each Tag
 
