@@ -26,24 +26,22 @@ function CodeMirror({ height = '200px', onChange = undefined, value = '{}' }: Pr
         doc = err.message;
     }
 
-    const updateListenerExtension = EditorView.updateListener.of((update) => {
-        if (update.docChanged && typeof onChange === 'function') {
-            // Handle the event here
-            onChange({
-                value: update.state.doc.toString()
-            });
-        }
-    });
-
     const [view /*, setView */] = React.useState(
         new EditorView({
             doc,
             extensions: [
                 basicSetup,
-                updateListenerExtension,
+                EditorView.updateListener.of((update) => {
+                    if (update.docChanged && typeof onChange === 'function') {
+                        // Handle the event here
+                        onChange({
+                            value: update.state.doc.toString()
+                        });
+                    }
+                }),
                 json()
             ]
-            // This multiplies CodeMirror instances, see useEffect
+            // Setting parent here multiplies CodeMirror instances
             // parent: codeMirrorElement.current
         })
     );
@@ -68,10 +66,16 @@ function CodeMirror({ height = '200px', onChange = undefined, value = '{}' }: Pr
             setHeight(view.dom, height);
             codeMirrorElement.current.append(view.dom);
         }
-    }, [view]); // useEffect is bound to the state of view
+
+        return () => { view.destroy() };
+    }, [view]); // useEffect is bound to the state of view, to ensure only one view
 
     React.useImperativeHandle(ref, () => ({
         value() {
+            // Without this design, view.state.doc might not be updated
+            // as if changes where made on a different view
+            // i.e. I could not make the following example work with onChange and useImperativeHandle
+            // https://www.codiga.io/blog/implement-codemirror-6-in-react/
             return view.state.doc.toString();
         }
     }));

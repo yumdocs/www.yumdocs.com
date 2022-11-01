@@ -12,8 +12,8 @@ import styles from './styles.module.css';
 interface Props {
     // children: typeof React.Children;
     height?: string;
-    json: string;
-    word: string;
+    data: string;
+    input: string;
     // title: string;
 }
 
@@ -21,44 +21,71 @@ export default function YumdocsPlayground({
    // children,
    // expression = 'field',
    height = '200px',
-   json = '{}',
-   word = '<p>Hello World</p>',
+   data = '{}',
+   input = '<p>Hello World</p>',
    // title = 'Expression Playground'
 }: Props): JSX.Element {
     const codeMirrorElement = React.useRef<typeof CodeMirror>();
     const proseMirrorElement = React.useRef<typeof ProseMirror>();
-    const alertElement = React.useRef<HTMLPreElement>();
-
+    const alertElement = React.useRef<HTMLDivElement>();
+    let to;
+    const clearError = () => {
+        const {current} = alertElement;
+        current.textContent = '';
+        current.parentElement.style.display = 'none';
+        if (to) clearTimeout(to);
+    };
+    const onError = (err) => {
+        const {current} = alertElement;
+        current.textContent = err.message;
+        current.parentElement.style.display = 'block';
+        to = setTimeout(clearError, 5000);
+    };
     const onInputClick = async () => {
-        // @ts-expect-error TS2339: Property 'save' does not exist on type 'ForwardRefExoticComponent  >'.
-        const input = proseMirrorElement.current.value();
-        // alert(input.toString());
-        // Create a doc in memory, and then write it to disk
-        // @ts-expect-error TS2345: Argument of type '{}' is not assignable to parameter of type 'Options'.
-        const wordDocument = defaultDocxSerializer.serialize(input, {});
-        const blob = await Packer.toBlob(wordDocument);
-        saveAs(blob, 'input.docx');
+        try {
+            clearError();
+            // @ts-expect-error TS2339: Property 'save' does not exist on type 'ForwardRefExoticComponent  >'.
+            const input = proseMirrorElement.current.value();
+            // alert(input.toString());
+            // Create a doc in memory, and then write it to disk
+            // @ts-expect-error TS2345: Argument of type '{}' is not assignable to parameter of type 'Options'.
+            const wordDocument = defaultDocxSerializer.serialize(input, {});
+            const blob = await Packer.toBlob(wordDocument);
+            saveAs(blob, 'input.docx');
+        } catch(err) {
+            onError(err);
+        }
     };
     const onDataClick = () => {
-        // @ts-expect-error TS2339: Property 'save' does not exist on type 'ForwardRefExoticComponent  >'.
-        const data = codeMirrorElement.current.value();
-        // alert(data);
-        const blob = new Blob([data], {type: 'application/json;charset=utf-8'});
-        saveAs(blob, 'data.json');
+        try {
+            clearError();
+            // @ts-expect-error TS2339: Property 'save' does not exist on type 'ForwardRefExoticComponent  >'.
+            const data = codeMirrorElement.current.value();
+            // alert(data);
+            const blob = new Blob([data], {type: 'application/json;charset=utf-8'});
+            saveAs(blob, 'data.json');
+        } catch(err) {
+            onError(err);
+        }
     };
     const onOutputClick = async () => {
-        // @ts-expect-error TS2339: Property 'save' does not exist on type 'ForwardRefExoticComponent  >'.
-        const input = proseMirrorElement.current.value();
-        // @ts-expect-error TS2339: Property 'save' does not exist on type 'ForwardRefExoticComponent  >'.
-        const data = codeMirrorElement.current.value();
-        // @ts-expect-error TS2345: Argument of type '{}' is not assignable to parameter of type 'Options'.
-        const wordDocument = defaultDocxSerializer.serialize(input, {});
-        const blob = await Packer.toBlob(wordDocument);
-        const doc = new YumTemplate();
-        // @ts-expect-error
-        await doc.load(blob);
-        await doc.render(JSON.parse(data));
-        await doc.saveAs('output.docx');
+        try {
+            clearError();
+            // @ts-expect-error TS2339: Property 'save' does not exist on type 'ForwardRefExoticComponent  >'.
+            const input = proseMirrorElement.current.value();
+            // @ts-expect-error TS2339: Property 'save' does not exist on type 'ForwardRefExoticComponent  >'.
+            const data = codeMirrorElement.current.value();
+            // @ts-expect-error TS2345: Argument of type '{}' is not assignable to parameter of type 'Options'.
+            const wordDocument = defaultDocxSerializer.serialize(input, {});
+            const blob = await Packer.toBlob(wordDocument);
+            const doc = new YumTemplate();
+            // @ts-expect-error
+            await doc.load(blob);
+            await doc.render(JSON.parse(data));
+            await doc.saveAs('output.docx');
+        } catch(err) {
+            onError(err);
+        }
     };
 
     return (
@@ -86,7 +113,7 @@ export default function YumdocsPlayground({
                         </div>
                         <div className={styles.yumdocsPlaygroundWordBody}>
                             <div className={styles.yumdocsPlaygroundWordContent}>
-                                <ProseMirror ref={proseMirrorElement} value={'<p>More Info</p>'}></ProseMirror>
+                                <ProseMirror ref={proseMirrorElement} value={input} height={height}></ProseMirror>
                             </div>
                         </div>
                     </div>
@@ -112,23 +139,23 @@ export default function YumdocsPlayground({
                             */}
                         </div>
                         <div className={styles.yumdocsPlaygroundJsonBody}>
-                            <div className={styles.yumdocsPlaygroundContent}>
-                                <CodeMirror ref={codeMirrorElement} value={'{"name": "John"}'}></CodeMirror>
+                            <div className={styles.yumdocsPlaygroundJsonContent}>
+                                <CodeMirror ref={codeMirrorElement} value={data} height={height}></CodeMirror>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div className={styles.yumdocsPlaygroundRow}>
-                <div className={"alert alert--success"} role="alert">
-                    <pre ref={alertElement} className={styles.expressionPlayGroundAlert}></pre>
+                <div className={"alert alert--danger"} role="alert" style={{display: 'none'}}>
+                    <div ref={alertElement} className={styles.expressionPlayGroundAlert}></div>
                 </div>
             </div>
             <div className={styles.yumdocsPlaygroundRow}>
                 {/* buttons */}
-                <button className="button button--secondary" onClick={onInputClick}>input.docx</button>
-                <button className="button button--secondary" onClick={onDataClick}>data.json</button>
-                <button className="button button--primary" onClick={onOutputClick}>output.docx</button>
+                <button className={clsx("button button--secondary", styles.yumdocsPlaygroundInputButton)} onClick={onInputClick}>input.docx</button>
+                <button className={clsx("button button--secondary", styles.yumdocsPlaygroundDataButton)} onClick={onDataClick}>data.json</button>
+                <button className={clsx("button button--primary", styles.yumdocsPlaygroundOutputButton)} onClick={onOutputClick}>output.docx</button>
             </div>
         </div>
     );

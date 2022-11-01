@@ -19,24 +19,31 @@
 }
 
 /**
- * Word Editor
+ * Common
  */
 
-
-.yumdocsPlaygroundWord {
-    /* border: 3px solid var(--ifm-color-emphasis-200); */
-    border: 3px solid #0078d4;
-    border-radius: var(--ifm-global-radius);
-    box-shadow: var(--ifm-global-shadow-lw);
-    margin-bottom: var(--ifm-leading);
+.dot {
+    margin-right: 6px;
+    margin-top: 4px;
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
 }
 
-.yumdocsPlaygroundWordHeader {
-    align-items: center;
-    /* background: var(--ifm-color-emphasis-200); */
-    background: #0078d4;
-    display: flex;
-    padding: 0.5rem 1rem;
+/*
+.yumdocsPlaygroundJsonMenuIcon {
+.yumdocsPlaygroundWordMenuIcon {
+  margin-left: auto;
+}
+
+.bar {
+  width: 17px;
+  height: 3px;
+  background-color: #aaa;
+  margin: 3px 0;
+  display: block;
 }
 
 .row::after {
@@ -57,6 +64,27 @@
 [data-theme='light'] {
     --ifm-background-color: #fff;
 }
+*/
+
+/**
+ * Word Editor
+ */
+
+.yumdocsPlaygroundWord {
+    /* border: 3px solid var(--ifm-color-emphasis-200); */
+    border: 3px solid #0078d4;
+    border-radius: var(--ifm-global-radius);
+    box-shadow: var(--ifm-global-shadow-lw);
+    margin-bottom: var(--ifm-leading);
+}
+
+.yumdocsPlaygroundWordHeader {
+    align-items: center;
+    /* background: var(--ifm-color-emphasis-200); */
+    background: #0078d4;
+    display: flex;
+    padding: 0.5rem 1rem;
+}
 
 .yumdocsPlaygroundWordTitle {
     flex: 1 0;
@@ -72,30 +100,6 @@
 /*
 [data-theme='dark'] .yumdocsPlaygroundWordTitle {
   color: var(--ifm-color-gray-300);
-}
-*/
-
-.dot {
-    margin-right: 6px;
-    margin-top: 4px;
-    height: 12px;
-    width: 12px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-/*
-.yumdocsPlaygroundWordMenuIcon {
-  margin-left: auto;
-}
-
-.bar {
-  width: 17px;
-  height: 3px;
-  background-color: #aaa;
-  margin: 3px 0;
-  display: block;
 }
 */
 
@@ -121,11 +125,10 @@
     color: var(--prism-color);
 }
 
-/* Match the padding of code blocks */
 .yumdocsPlaygroundWordContent {
     font: inherit;
     min-width: 100%;
-    padding: var(--ifm-pre-padding);
+    padding: 0;
 }
 
 /* .yumdocsPlaygroundWordBody *:last-child { */
@@ -152,27 +155,6 @@
     padding: 0.5rem 1rem;
 }
 
-/*
-.row::after {
-    content: '';
-    display: table;
-    clear: both;
-}
-
-.buttons {
-    white-space: nowrap;
-}
-
-.right {
-    align-self: center;
-    width: 10%;
-}
-
-[data-theme='light'] {
-    --ifm-background-color: #fff;
-}
-*/
-
 .yumdocsPlaygroundJsonTitle {
     flex: 1 0;
     margin: 0 1rem 0 0.5rem;
@@ -187,30 +169,6 @@
 [data-theme='dark'] .yumdocsPlaygroundJsonTitle {
   color: var(--ifm-color-gray-300);
 }
-
-.dot {
-    margin-right: 6px;
-    margin-top: 4px;
-    height: 12px;
-    width: 12px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-/*
-.yumdocsPlaygroundMenuIcon {
-  margin-left: auto;
-}
-
-.bar {
-  width: 17px;
-  height: 3px;
-  background-color: #aaa;
-  margin: 3px 0;
-  display: block;
-}
-*/
 
 .yumdocsPlaygroundJsonBody {
     /* border-bottom-left-radius: inherit;*/
@@ -234,14 +192,39 @@
     color: var(--prism-color);
 }
 
-/* Match the padding of code blocks */
 .yumdocsPlaygroundJsonContent {
     font: inherit;
     min-width: 100%;
-    padding: var(--ifm-pre-padding);
+    padding: 0;
 }
 
 /* .yumdocsPlaygroundBody *:last-child { */
 .yumdocsPlaygroundJsonContent *:last-child {
     margin-bottom: 0;
+}
+
+/**
+ * Alert
+ */
+.yumdocsPlaygroundRow [class*="alert"] {
+    flex: 1 0;
+    margin-bottom: var(--ifm-spacing-horizontal);
+}
+
+/**
+ * Buttons
+ */
+.yumdocsPlaygroundInputButton {
+    background: #0078d4;
+    border-color: #0078d4;
+    color: #fff !important;
+}
+.yumdocsPlaygroundDataButton {
+    background: var(--ifm-color-emphasis-200);
+    border-color: var(--ifm-color-emphasis-200);
+    color: var(--ifm-color-gray-800);
+}
+
+[data-theme='dark'] .yumdocsPlaygroundDataButton {
+    color: var(--ifm-color-gray-300);
 }

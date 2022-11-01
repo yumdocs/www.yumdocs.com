@@ -1,1 +1,7 @@
-.proseMirrorElement {}
+.proseMirrorElement {
+    font-family: "Times New Roman", Times, serif;
+}
+
+.proseMirrorElement p {
+    margin: initial;
+}
