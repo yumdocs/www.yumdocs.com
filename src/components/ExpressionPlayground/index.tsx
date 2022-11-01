@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from "clsx";
 import jexl from 'jexl';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import CodeMirror from '@site/src/components/CodeMirror';
 
 import styles from './styles.module.css';
@@ -50,41 +51,48 @@ export default function ExpressionPlayground({
         }, [expValue, cmValue]);
 
     return (
-        <div className={styles.expressionPlayground}>
-            <div className={styles.expressionPlaygroundHeader}>
-                <div className={styles.buttons}>
-                    <span className={styles.dot} style={{background: '#f25f58'}} />
-                    <span className={styles.dot} style={{background: '#fbbe3c'}} />
-                    <span className={styles.dot} style={{background: '#58cb42'}} />
+        <BrowserOnly fallback={<div>Loading...</div>}>{() =>
+            <div className={styles.expressionPlayground}>
+                <div className={styles.expressionPlaygroundHeader}>
+                    <div className={styles.buttons}>
+                        <span className={styles.dot} style={{background: '#f25f58'}}/>
+                        <span className={styles.dot} style={{background: '#fbbe3c'}}/>
+                        <span className={styles.dot} style={{background: '#58cb42'}}/>
+                    </div>
+                    <div className={clsx(styles.expressionPlaygroundTitle, 'text--truncate')}>
+                        {title}
+                    </div>
+                    {/*
+                    <div className={styles.expressionPlaygroundMenuIcon}>
+                      <div>
+                        <span className={styles.bar} />
+                        <span className={styles.bar} />
+                        <span className={styles.bar} />
+                      </div>
+                    </div>
+                    */}
                 </div>
-                <div className={clsx(styles.expressionPlaygroundTitle, 'text--truncate')}>
-                    {title}
-                </div>
-                {/*
-                <div className={styles.expressionPlaygroundMenuIcon}>
-                  <div>
-                    <span className={styles.bar} />
-                    <span className={styles.bar} />
-                    <span className={styles.bar} />
-                  </div>
-                </div>
-                */}
-            </div>
-            <div className={styles.expressionPlaygroundBody}>
-                <div className={styles.expressionPlaygroundContent}>
-                    <div className={styles.expressionPlayGroundSectionTitle}>Json Data:</div>
-                    <CodeMirror
-                        value={cmValue}
-                        height={height}
-                        onChange={(e: { value: string }) => { setCmValue(e.value); }} />
-                    <div className={styles.expressionPlayGroundSectionTitle}>Expression:&nbsp;</div>
-                    <input className={styles.expressionPlayGroundInput} type="text" value={expValue} onChange={(evt) => { setExpValue(evt.target.value); }}/>
-                    <div className={styles.expressionPlayGroundSectionTitle}>Result:</div>
-                    <div className={"alert alert--success"} role="alert">
-                        <pre ref={alertElement} className={styles.expressionPlayGroundResult}></pre>
+                <div className={styles.expressionPlaygroundBody}>
+                    <div className={styles.expressionPlaygroundContent}>
+                        <div className={styles.expressionPlayGroundSectionTitle}>Json Data:</div>
+                        <CodeMirror
+                            value={cmValue}
+                            height={height}
+                            onChange={(e: { value: string }) => {
+                                setCmValue(e.value);
+                            }}/>
+                        <div className={styles.expressionPlayGroundSectionTitle}>Expression:&nbsp;</div>
+                        <input className={styles.expressionPlayGroundInput} type="text" value={expValue}
+                               onChange={(evt) => {
+                                   setExpValue(evt.target.value);
+                               }}/>
+                        <div className={styles.expressionPlayGroundSectionTitle}>Result:</div>
+                        <div className={"alert alert--success"} role="alert">
+                            <pre ref={alertElement} className={styles.expressionPlayGroundResult}></pre>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }</BrowserOnly>
     );
 }

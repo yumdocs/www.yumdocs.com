@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { defaultDocxSerializer } from 'prosemirror-docx';
 import { Packer } from 'docx';
 import { saveAs } from 'file-saver';
+import BrowserOnly from "@docusaurus/BrowserOnly";
 import { YumTemplate } from '@yumdocs/yumdocs';
 import CodeMirror from '@site/src/components/CodeMirror';
 import ProseMirror from "@site/src/components/ProseMirror";
@@ -89,19 +90,21 @@ export default function YumdocsPlayground({
     };
 
     return (
-        <div className={styles.yumdocsPlayground}>
-            <div className={styles.yumdocsPlaygroundRow}>
-                <div className={styles.yumdocsPlaygroundCol}>
-                    {/* Word Editor */}
-                    <div className={styles.yumdocsPlaygroundWord}>
-                        <div className={styles.yumdocsPlaygroundWordHeader}>
-                            <div className={styles.buttons}>
-                                <span className={styles.dot} style={{background: '#f25f58'}} />
-                                <span className={styles.dot} style={{background: '#fbbe3c'}} />
-                                <span className={styles.dot} style={{background: '#58cb42'}} />
-                            </div>
-                            <div className={clsx(styles.yumdocsPlaygroundWordTitle, 'text--truncate')}>input.docx</div>
-                            {/*
+        <BrowserOnly fallback={<div>Loading...</div>}>{() =>
+            <div className={styles.yumdocsPlayground}>
+                <div className={styles.yumdocsPlaygroundRow}>
+                    <div className={styles.yumdocsPlaygroundCol}>
+                        {/* Word Editor */}
+                        <div className={styles.yumdocsPlaygroundWord}>
+                            <div className={styles.yumdocsPlaygroundWordHeader}>
+                                <div className={styles.buttons}>
+                                    <span className={styles.dot} style={{background: '#f25f58'}}/>
+                                    <span className={styles.dot} style={{background: '#fbbe3c'}}/>
+                                    <span className={styles.dot} style={{background: '#58cb42'}}/>
+                                </div>
+                                <div className={clsx(styles.yumdocsPlaygroundWordTitle, 'text--truncate')}>input.docx
+                                </div>
+                                {/*
                             <div className={styles.yumdocsPlaygroundWordMenuIcon}>
                               <div>
                                 <span className={styles.bar} />
@@ -110,25 +113,26 @@ export default function YumdocsPlayground({
                               </div>
                             </div>
                             */}
-                        </div>
-                        <div className={styles.yumdocsPlaygroundWordBody}>
-                            <div className={styles.yumdocsPlaygroundWordContent}>
-                                <ProseMirror ref={proseMirrorElement} value={input} height={height}></ProseMirror>
+                            </div>
+                            <div className={styles.yumdocsPlaygroundWordBody}>
+                                <div className={styles.yumdocsPlaygroundWordContent}>
+                                    <ProseMirror ref={proseMirrorElement} value={input} height={height}></ProseMirror>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className={styles.yumdocsPlaygroundCol}>
-                    {/* JSON Editor */}
-                    <div className={styles.yumdocsPlaygroundJson}>
-                        <div className={styles.yumdocsPlaygroundJsonHeader}>
-                            <div className={styles.buttons}>
-                                <span className={styles.dot} style={{background: '#f25f58'}} />
-                                <span className={styles.dot} style={{background: '#fbbe3c'}} />
-                                <span className={styles.dot} style={{background: '#58cb42'}} />
-                            </div>
-                            <div className={clsx(styles.yumdocsPlaygroundJsonTitle, 'text--truncate')}>data.json</div>
-                            {/*
+                    <div className={styles.yumdocsPlaygroundCol}>
+                        {/* JSON Editor */}
+                        <div className={styles.yumdocsPlaygroundJson}>
+                            <div className={styles.yumdocsPlaygroundJsonHeader}>
+                                <div className={styles.buttons}>
+                                    <span className={styles.dot} style={{background: '#f25f58'}}/>
+                                    <span className={styles.dot} style={{background: '#fbbe3c'}}/>
+                                    <span className={styles.dot} style={{background: '#58cb42'}}/>
+                                </div>
+                                <div className={clsx(styles.yumdocsPlaygroundJsonTitle, 'text--truncate')}>data.json
+                                </div>
+                                {/*
                             <div className={styles.yumdocsPlaygroundMenuIcon}>
                               <div>
                                 <span className={styles.bar} />
@@ -137,26 +141,33 @@ export default function YumdocsPlayground({
                               </div>
                             </div>
                             */}
-                        </div>
-                        <div className={styles.yumdocsPlaygroundJsonBody}>
-                            <div className={styles.yumdocsPlaygroundJsonContent}>
-                                <CodeMirror ref={codeMirrorElement} value={data} height={height}></CodeMirror>
+                            </div>
+                            <div className={styles.yumdocsPlaygroundJsonBody}>
+                                <div className={styles.yumdocsPlaygroundJsonContent}>
+                                    <CodeMirror ref={codeMirrorElement} value={data} height={height}></CodeMirror>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className={styles.yumdocsPlaygroundRow}>
-                <div className={"alert alert--danger"} role="alert" style={{display: 'none'}}>
-                    <div ref={alertElement} className={styles.expressionPlayGroundAlert}></div>
+                <div className={styles.yumdocsPlaygroundRow}>
+                    <div className={"alert alert--danger"} role="alert" style={{display: 'none'}}>
+                        <div ref={alertElement} className={styles.expressionPlayGroundAlert}></div>
+                    </div>
+                </div>
+                <div className={styles.yumdocsPlaygroundRow}>
+                    {/* buttons */}
+                    <button className={clsx("button button--secondary", styles.yumdocsPlaygroundInputButton)}
+                            onClick={onInputClick}>input.docx
+                    </button>
+                    <button className={clsx("button button--secondary", styles.yumdocsPlaygroundDataButton)}
+                            onClick={onDataClick}>data.json
+                    </button>
+                    <button className={clsx("button button--primary", styles.yumdocsPlaygroundOutputButton)}
+                            onClick={onOutputClick}>output.docx
+                    </button>
                 </div>
             </div>
-            <div className={styles.yumdocsPlaygroundRow}>
-                {/* buttons */}
-                <button className={clsx("button button--secondary", styles.yumdocsPlaygroundInputButton)} onClick={onInputClick}>input.docx</button>
-                <button className={clsx("button button--secondary", styles.yumdocsPlaygroundDataButton)} onClick={onDataClick}>data.json</button>
-                <button className={clsx("button button--primary", styles.yumdocsPlaygroundOutputButton)} onClick={onOutputClick}>output.docx</button>
-            </div>
-        </div>
+        }</BrowserOnly>
     );
 }
