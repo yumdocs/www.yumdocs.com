@@ -99,11 +99,10 @@
     color: var(--prism-color);
 }
 
-/* Match the padding of code blocks */
 .expressionPlaygroundContent {
     font: inherit;
     min-width: 100%;
-    padding: var(--ifm-pre-padding);
+    padding: 0;
 }
 
 /* .expressionPlaygroundBody *:last-child { */
