@@ -4,7 +4,7 @@ import { defaultDocxSerializer } from 'prosemirror-docx';
 import { Packer } from 'docx';
 import { saveAs } from 'file-saver';
 import BrowserOnly from "@docusaurus/BrowserOnly";
-import { YumTemplate } from '@yumdocs/yumdocs';
+import { YumError, YumTemplate } from '@yumdocs/yumdocs';
 import CodeMirror from '@site/src/components/CodeMirror';
 import ProseMirror from "@site/src/components/ProseMirror";
 
@@ -32,13 +32,15 @@ export default function YumdocsPlayground({
     let to;
     const clearError = () => {
         const {current} = alertElement;
-        current.textContent = '';
+        current.innerHTML = '';
         current.parentElement.style.display = 'none';
         if (to) clearTimeout(to);
     };
     const onError = (err) => {
         const {current} = alertElement;
-        current.textContent = err.message;
+        current.innerHTML = err instanceof YumError && err.originalError instanceof Error ?
+            `${err.message}<br/>${err.originalError.message}` :
+            err.message;
         current.parentElement.style.display = 'block';
         to = setTimeout(clearError, 5000);
     };
