@@ -23,15 +23,28 @@
     border-radius: 0.375rem;
 }
 
-[data-theme='dark'] [class *="cm-gutters"] {
+/* string values */
+[class *="cm-editor"] [class *="ͼe"] {
+    color: var(--ifm-color-primary-lightest);
+}
+
+[data-theme="dark"] [class *="cm-gutters"] {
     background-color: var(--prism-background-color);
     color: var(--prism-color);
 }
 
-[data-theme='dark'] [class *="cm-activeLineGutter"] {
+[data-theme="dark"] [class *="cm-activeLineGutter"] {
     background-color: #cceeff44;
 }
 
-[class *="cm-editor"] [class *="ͼe"] {
-    color: var(--ifm-color-primary-lightest);
+/* Lint tooltips */
+/* https://github.com/codemirror/lint/blob/main/src/lint.ts#L561 */
+[class *="cm-diagnostic"] {
+    font-family: monospace;
+}
+
+[class *="cm-diagnostic-error"] {
+    background-color: var(--ifm-color-danger-contrast-background);
+    color: var(--ifm-color-danger-contrast-foreground);
+    border-color: var(--ifm-color-danger-dark);
 }
