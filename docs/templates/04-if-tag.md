@@ -38,7 +38,7 @@ The `#if` tag is an opening tag, which requires a closing tag, i.e. `{{#endif}}`
 Yumdocs includes the content between the opening tag and the closing tag if the condition is met.
 If the condition is not met, the content is discarded.
 
-The if tag is also associated with an optional tag, i.e. {{#else}},
+The if tag is also associated with an optional tag, i.e. `{{#else}}`,
 which allows for alternate content if the condition is not met. 
 
 Considering the condition `year3 > year2` is met in the following example,
