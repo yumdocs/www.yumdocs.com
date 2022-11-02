@@ -19,7 +19,7 @@ but can be configured to use any [expression engine](../contribution/05-expressi
 
 ## Object properties
 
-Object properties are in the form `"name": value` where `value` can be a string (between double quotes),
+Object properties are in the form `"name": value` where `value` can be a string (between quotes),
 a boolean (true or false), a number, an object (between curly braces) or an array (between square brackets).
 
 An object is a collection of properties. An array is a collection of values.
