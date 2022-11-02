@@ -2,14 +2,16 @@ import React from 'react';
 // import clsx from 'clsx';
 import {EditorState} from 'prosemirror-state';
 import {EditorView} from 'prosemirror-view';
-import { NodeType, Schema, DOMParser as Parser} from 'prosemirror-model';
+import {NodeType, Schema, DOMParser as Parser} from 'prosemirror-model';
 import {inputRules, wrappingInputRule, textblockTypeInputRule} from "prosemirror-inputrules"
-import {schema} from 'prosemirror-schema-basic';
+import {schema as baseSchema} from 'prosemirror-schema-basic';
 import {addListNodes} from 'prosemirror-schema-list';
-import {exampleSetup} from 'prosemirror-example-setup';
+import {tableEditing, tableNodes} from 'prosemirror-tables';
+import {exampleSetup as baseSetup} from 'prosemirror-example-setup';
 
 import 'prosemirror-view/style/prosemirror.css';
-import 'prosemirror-menu/style/menu.css';
+import 'prosemirror-tables/style/tables.css';
+// import 'prosemirror-menu/style/menu.css';
 import styles from './styles.module.css';
 
 interface Props {
@@ -24,8 +26,7 @@ interface Props {
  * @see https://github.com/ProseMirror/prosemirror-example-setup/blob/master/src/inputrules.ts
  * @param schema
  */
-/// A set of input rules for creating the basic block quotes, lists,
-/// code blocks, and heading.
+/// A set of input rules for creating the basic block quotes, lists, code blocks, and heading.
 function buildInputRules(schema: Schema) {
     /// Given a list node type, returns an input rule that turns a number
     /// followed by a dot at the start of a textblock into an ordered list.
@@ -62,6 +63,30 @@ function buildInputRules(schema: Schema) {
 }
 
 /**
+ * Add tables nodes
+ * @see https://codesandbox.io/s/c5nkc
+ * @param nodes
+ */
+function addTableNodes(nodes) {
+    return nodes.append(tableNodes({
+        tableGroup: 'block',
+        cellContent: 'block+',
+        cellAttributes: {
+            background: {
+                default: null,
+                getFromDOM(dom: HTMLElement) {
+                    return (dom.style && dom.style.backgroundColor) || null;
+                },
+                setDOMAttr(value, attrs) {
+                    if (value)
+                        attrs.style = (attrs.style || '') + `background-color: ${value};`;
+                }
+            }
+        }
+    }));
+}
+
+/**
  * ProseMirror
  * @param height
  * @param value
@@ -72,30 +97,28 @@ function buildInputRules(schema: Schema) {
 function ProseMirror({ height = '200px', onChange = undefined, value = '<p>Hello World</p>' }: Props, ref) {
     const proseMirrorElement = React.useRef<HTMLDivElement>();
 
-    // Add ordered and unordered lists
-    const mySchema = new Schema({
-        nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block"),
-        marks: schema.spec.marks
-    });
+    let {nodes} = baseSchema.spec;
+    nodes = addTableNodes(nodes); // Add tables
+    nodes = addListNodes(nodes, 'paragraph block*', 'block'); // Add ordered and unordered lists
+    const schema = new Schema({ nodes, marks: baseSchema.spec.marks });
 
     let doc;
     try {
         doc = new DOMParser().parseFromString(value, 'text/html');
+        doc = Parser.fromSchema(schema).parse(doc);
     } catch(err) {
         doc = `<p>${err.message}</p>`
     }
 
-    const plugins = exampleSetup({schema: mySchema, menuBar: false });
-    plugins[0] = buildInputRules(mySchema); // Disable smartQuotes
+    const plugins = baseSetup({ schema, menuBar: false });
+    plugins[0] = buildInputRules(schema); // Disable smartQuotes
+    plugins.push(tableEditing()); // Add tables
 
     const [view/*, setView*/] = React.useState<EditorView>(new EditorView(
         undefined,
         // proseMirrorElement.current,
         {
-            state: EditorState.create({
-                doc: Parser.fromSchema(mySchema).parse(doc),
-                plugins
-            }),
+            state: EditorState.create({ doc, plugins }),
             // onChange event
             // https://discuss.prosemirror.net/t/event-when-editor-updated-used-to-be-onaction/607
             dispatchTransaction(tr) {
