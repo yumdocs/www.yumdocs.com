@@ -1,7 +1,8 @@
 import React from 'react';
 // import clsx from 'clsx';
-import {EditorView, basicSetup} from 'codemirror'
-import {json} from '@codemirror/lang-json'
+import { EditorView, basicSetup } from 'codemirror';
+import { linter, lintGutter } from "@codemirror/lint";
+import { json, jsonParseLinter } from '@codemirror/lang-json';
 
 import styles from './styles.module.css';
 
@@ -39,7 +40,9 @@ function CodeMirror({ height = '200px', onChange = undefined, value = '{}' }: Pr
                         });
                     }
                 }),
-                json()
+                json(),
+                linter(jsonParseLinter()),
+                lintGutter()
             ]
             // Setting parent here multiplies CodeMirror instances
             // parent: codeMirrorElement.current
