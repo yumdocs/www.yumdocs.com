@@ -42,6 +42,6 @@ The if tag is also associated with an optional tag, i.e. {{#else}},
 which allows for alternate content if the condition is not met. 
 
 Considering the condition `year3 > year2` is met in the following example,
-`We are doing great!`is included and `We should improve!` is discarded.
+`We are doing great!` is included and `We should improve!` is discarded.
 
 <YumdocsPlayground data={ifData} input={ifInput}></YumdocsPlayground>

@@ -1,15 +1,15 @@
 // Object properties
 export const objectData = JSON.stringify({
     person: {
-        firstName: "Jack",
-        lastName: "Bloggs",
+        firstName: 'Jack',
+        lastName: 'Bloggs',
         father: {
-            firstName: "Joe",
-            lastName: "Bloggs"
+            firstName: 'Joe',
+            lastName: 'Bloggs'
         },
         mother: {
-            firstName: "Jane",
-            lastName: "Doe"
+            firstName: 'Jane',
+            lastName: 'Doe'
         }
     }
 });
@@ -18,22 +18,22 @@ export const objectExpression = 'person.father.lastName';
 // Array items
 export const arrayData = JSON.stringify({
     organization: {
-        name: "Avengers",
+        name: 'Avengers',
         members: [
             {
-                firstName: "Tony",
-                lastName: "Stark",
-                heroName: "IronMan"
+                firstName: 'Tony',
+                lastName: 'Stark',
+                heroName: 'IronMan'
             },
             {
-                firstName: "Peter",
-                lastName: "Parker",
-                heroName: "SpiderMan"
+                firstName: 'Peter',
+                lastName: 'Parker',
+                heroName: 'SpiderMan'
             },
             {
-                firstName: "Bruce",
-                lastName: "Banner",
-                heroName: "Hulk"
+                firstName: 'Bruce',
+                lastName: 'Banner',
+                heroName: 'Hulk'
             }
         ]
     }

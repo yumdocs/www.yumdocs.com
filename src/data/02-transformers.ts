@@ -1,15 +1,15 @@
 // Object properties
 export const stringData = JSON.stringify({
     person: {
-        firstName: "Jack",
-        lastName: "Bloggs",
+        firstName: 'Jack',
+        lastName: 'Bloggs',
         father: {
-            firstName: "Joe",
-            lastName: "Bloggs"
+            firstName: 'Joe',
+            lastName: 'Bloggs'
         },
         mother: {
-            firstName: "Jane",
-            lastName: "Doe"
+            firstName: 'Jane',
+            lastName: 'Doe'
         }
     }
 });

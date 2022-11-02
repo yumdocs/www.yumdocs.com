@@ -30,13 +30,17 @@ But note that you can modify `input.docx` in Word and run `yumdocs input.docx da
 
 :::
 
+TODO Syntax
+
 ## String
 
-| Transformer        | Description                                                            |
-|--------------------|------------------------------------------------------------------------|
-| lower              | Converts the expression before the <code>&vert;</code> to lower case   |
-| substr(start, end) | Extracts a substring of the expression before the <code>&vert;</code>  |
-| upper              | Converts the expression before the <code>&vert;</code> to upper case   |
+The following transformers are available on strings of characters:
+
+| Transformer          | Description                                                            |
+|----------------------|------------------------------------------------------------------------|
+| `lower`              | Converts the expression before the <code>&vert;</code> to lower case   |
+| `substr(start, end)` | Extracts a substring of the expression before the <code>&vert;</code>  |
+| `upper`              | Converts the expression before the <code>&vert;</code> to upper case   |
 
 <ExpressionPlayground data={stringData} expression={stringExpression} height="260px"></ExpressionPlayground>
 
