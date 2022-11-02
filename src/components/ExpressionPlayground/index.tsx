@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from "clsx";
-import jexl from 'jexl';
+import {expressionEngine} from '@yumdocs/yumdocs';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import CodeMirror from '@site/src/components/CodeMirror';
 
@@ -29,9 +29,10 @@ export default function ExpressionPlayground({
     const [cmValue, setCmValue] = React.useState(json);
     const alertElement = React.useRef<HTMLPreElement>();
     React.useEffect(() => {
+        // useEffect cannot call async, so we need to handle the promise
         const evaluate = async() => {
             const context = JSON.parse(cmValue);
-            const val = await jexl.eval(expValue, context)
+            const val = await expressionEngine.evaluate(expValue, context)
             return JSON.stringify(val, null, 2); // prettify
         }
         evaluate()
