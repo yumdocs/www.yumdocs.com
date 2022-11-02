@@ -25,7 +25,7 @@ a boolean (true or false), a number, an object (between curly braces) or an arra
 An object is a collection of properties. An array is a collection of values.
 
 A property is evaluated by its name. If the value of a property is an object (e.g person), a dot is used to access
-the properties of this object (e.g. person.firstName), which you can experiment in the following playground:
+the properties of this object (e.g. `person.firstName`), which you can experiment in the following playground:
 
 <ExpressionPlayground data={objectData} expression={objectExpression} height="260px"></ExpressionPlayground>
 

@@ -32,7 +32,7 @@ But note that you can modify `input.docx` in Word and run `yumdocs input.docx da
 
 The each tag is a statement (or instruction) followed by an array, i.e. `{{#each <array>}}`.
 The array is a actually an expression which value is an array.
-The each tag is an opening tag, which requires a closing tag, i.e. `{{#endeach}}`.
+The `#each` tag is an opening tag, which requires a closing tag, i.e. `{{#endeach}}`.
 Yumdocs repeats the content between the opening tag and the closing tag for each item in the array.
 
 In the following example, `organization.members` is an array of three persons and
