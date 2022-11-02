@@ -3,7 +3,7 @@ sidebar_position: 6
 ---
 
 import YumdocsPlayground from '@site/src/components/YumdocsPlayground';
-import {delimitersData, delimitersInput, unknownData, unknownInput, mismatchedData, misplacedInput, misplacedData, mismatchedInput, malformedData, malformedInput} from '@site/src/data/06-errors.ts'
+import {delimitersData, delimitersInput, unknownData, unknownInput, mismatchedData, misplacedInput, misplacedData, mismatchedInput, malformedData, malformedInput, missingData, missingInput, eachData, eachInput} from '@site/src/data/06-errors.ts'
 
 # Errors
 
@@ -34,9 +34,9 @@ All tags should be enclosed between the delimiters `{{` and `}}`, or those you h
 These are sufficiently unusual not to be expected in static content (as opposed to the dynamic tags Yumdocs processes).
 The following will simply be ignored and interpreted as static text to avoid false positives:
 
-- `{<statement? expression?>}`
-- `{{<statement? expression?>} }`
-- `{<statement? expression?>}}`
+- `{<statement?> <expression?>}`
+- `{{<statement?> <expression?>} }`
+- `{<statement?> <expression?>}}`
 
 By design, Yumdocs is permissive and ignores without raising errors any tag in-between incomplete delimiters
 as if it was intended static content, which you can experiment in the following playground:
@@ -77,7 +77,7 @@ with `""` to prevent additions between numbers.
 
 ## Processing Errors
 
-> Processing errors refer to errors that occur during merging data.
+> Processing errors refer to errors that occur because of the data merged.
 
 ### File errors
 
@@ -89,10 +89,19 @@ There are 3 types of file errors which cannot be reproduced in the playground:
 
 ### Missing data in an expression tag
 
-<YumdocsPlayground data={malformedData} input={malformedInput} height="136px"></YumdocsPlayground>
+In an expression tag, an expression referring to a property which does not exist, is evaluated as `undefined`, without raising errors.
+But remember that `undefined` is falsy, so `{{!d}}` in the following example is evaluated as `true`.
+
+<YumdocsPlayground data={missingData} input={missingInput} height="136px"></YumdocsPlayground>
 
 ### Missing data in other tags (statements)
 
-<YumdocsPlayground data={malformedData} input={malformedInput} height="136px"></YumdocsPlayground>
+In an `#if` tag, a condition referring to a property which does not exist, is evaluated as `undefined`, which is falsy.
+Therefore the condition will not be met and there will be no error.
+
+In an `#each` tag, an array referring to a property which does not exist, is evaluated as `[]`, or empty.
+Therefore there will be no iteration and there will be no error.
+
+<YumdocsPlayground data={eachData} input={eachInput} height="136px"></YumdocsPlayground>
 
 ### Data type errors

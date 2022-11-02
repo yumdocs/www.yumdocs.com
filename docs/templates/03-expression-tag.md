@@ -35,6 +35,6 @@ The delimiters tell **Yumdocs** to evaluate the expression in-between the delimi
 Yumdocs then replaces the expression tag, including the delimiters, with the resulting value of evaluating the expression.
 
 In the following example, `{{person.salutation + ' ' + person.firstName|substr(0, 1) + '. ' + person.lastName|upper}}`
-is replaced with `Mr J. BLOGGS`. Notice the use of the transformers `substr` and `upper`.
+is replaced with `Mr J. BLOGGS`. Notice the use of the tranforms `substr` and `upper`.
 
 <YumdocsPlayground data={stringData} input={stringInput}></YumdocsPlayground>
