@@ -76,27 +76,6 @@ const config = {
   themeConfig:
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
-        navbar: {
-          title: 'Yumdocs',
-          logo: {
-            alt: 'Yumdocs Logo',
-            src: 'img/logo.svg',
-          },
-          items: [
-            {
-              type: 'doc',
-              docId: 'intro',
-              position: 'left',
-              label: 'Documentation',
-            },
-            /* {to: '/blog', label: 'Blog', position: 'left'}, */
-            {
-              href: 'https://github.com/yumdocs/yumdocs',
-              label: 'GitHub',
-              position: 'right',
-            },
-          ],
-        },
         footer: {
           // style: 'dark',
           links: [
@@ -141,6 +120,30 @@ const config = {
             },
           ],
           copyright: `Copyright © ${new Date().getFullYear()} Jacques L. Chereau - All rights reserved.`,
+        },
+        metadata: [
+          {name:'keywords', content:'Microsoft Office, Word, PowerPoint, Excel, docx, pptx, xlsx, json, automation, generation, creation, automate, generate, create, merge, template, engine, Node, JavaScript, js, TypeScript'}
+        ],
+        navbar: {
+          title: 'Yumdocs',
+          logo: {
+            alt: 'Yumdocs Logo',
+            src: 'img/logo.svg',
+          },
+          items: [
+            {
+              type: 'doc',
+              docId: 'intro',
+              position: 'left',
+              label: 'Documentation',
+            },
+            /* {to: '/blog', label: 'Blog', position: 'left'}, */
+            {
+              href: 'https://github.com/yumdocs/yumdocs',
+              label: 'GitHub',
+              position: 'right',
+            },
+          ],
         },
         prism: {
           theme: lightCodeTheme,
