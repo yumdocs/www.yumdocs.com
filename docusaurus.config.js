@@ -122,7 +122,7 @@ const config = {
           copyright: `Copyright © ${new Date().getFullYear()} Jacques L. Chereau - All rights reserved.`,
         },
         metadata: [
-          {name:'keywords', content:'Microsoft Office, Word, PowerPoint, Excel, docx, pptx, xlsx, json, automation, generation, creation, automate, generate, create, merge, template, engine, Node, JavaScript, js, TypeScript'}
+          {name:'keywords', content:'Microsoft Office, Word, PowerPoint, Excel, docx, pptx, xlsx, Open XML, json, automation, generation, creation, automate, generate, create, merge, template, engine, Node, JavaScript, js, TypeScript'}
         ],
         navbar: {
           title: 'Yumdocs',
