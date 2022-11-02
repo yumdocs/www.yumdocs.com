@@ -31,4 +31,4 @@ This project is MIT Licensed like its 3rd party components:
 
 It can be used freely in commercial and non-commercial projects.
 
-Copyright (c) 2022 - Jacques L. Chereau. All rights reserved.
+Copyright © 2022 - Jacques L. Chereau. All rights reserved.
