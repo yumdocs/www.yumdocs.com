@@ -21,7 +21,7 @@ export default function Lottie({autoplay = true, loop = true, path, renderer = '
             autoplay,
             path // the path to the animation json
         });
-    });
+    }, [lottieElement]);
 
     return (
         <div ref={lottieElement} className={styles.lottieElement} />
