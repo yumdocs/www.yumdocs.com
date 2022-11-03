@@ -11,11 +11,21 @@
 
 .yumdocsPlaygroundRow {
     display: flex;
+    flex-direction: row;
     gap: 1rem;
 }
 
+@media only screen and (max-width: 576px) {
+    .yumdocsPlaygroundRow {
+        flex-direction:column;
+    }
+    .yumdocsPlaygroundWord {
+        margin-bottom: 0 !important;
+    }
+}
+
 .yumdocsPlaygroundCol {
-    flex: 50%;
+    flex: 1 0;
 }
 
 /**
