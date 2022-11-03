@@ -21,11 +21,12 @@ function HomepageHeader() {
                   <Link
                     className="button button--secondary button--lg"
                     to="/docs/intro">
-                      ⏱️ 5min Tutorials
+                      ⏱️ 5-min Tutorials
                   </Link>
                 </div>
               </div>
               <div className="col col--6">
+                  {/* lottie.png is actually a json file, but it would not load properly unless renamed into .png */}
                   <Lottie path={require('@site/static/img/lottie.png').default}/>
               </div>
           </div>
