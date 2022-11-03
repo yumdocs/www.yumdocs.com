@@ -11,6 +11,14 @@ interface Props {
     renderer?: RendererType;
 }
 
+/**
+ * Lottie
+ * @param autoplay
+ * @param loop
+ * @param path
+ * @param renderer
+ * @constructor
+ */
 export default function Lottie({autoplay = true, loop = true, path, renderer = 'svg'}: Props) {
     const lottieElement = React.useRef<HTMLDivElement>();
     React.useEffect(() => {
@@ -21,6 +29,10 @@ export default function Lottie({autoplay = true, loop = true, path, renderer = '
             autoplay,
             path // the path to the animation json
         });
+
+        // Note: might need a name for hosting several animations
+        return () => { lottie.destroy(); };
+
     }, [lottieElement]);
 
     return (
