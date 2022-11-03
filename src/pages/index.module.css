@@ -22,6 +22,10 @@
   .heroBanner {
     padding: 2rem;
   }
+
+  .heroBanner [class*="lottie-wrapper"] {
+    padding: 1rem 0 2rem 0;
+  }
 }
 
 .buttons {

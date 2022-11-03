@@ -26,8 +26,10 @@ function HomepageHeader() {
                 </div>
               </div>
               <div className="col col--6">
-                  {/* lottie.png is actually a json file, but it would not load properly unless renamed into .png */}
-                  <Lottie path={require('@site/static/img/lottie.png').default}/>
+                  <div className="lottie-wrapper">
+                      {/* lottie.png is actually a json file, but it would not load properly unless renamed into .png */}
+                      <Lottie path={require('@site/static/img/lottie.png').default}/>
+                  </div>
               </div>
           </div>
       </div>
