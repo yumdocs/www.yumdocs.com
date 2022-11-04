@@ -13,7 +13,7 @@ import {objectData, objectExpression, arrayData, arrayExpression, concatenationD
 
 Yumdocs uses a [custom implementation](https://www.npmjs.com/package/jexl) of
 [JEXL](https://commons.apache.org/proper/commons-jexl/) by default,
-but can be configured to use any [expression engine](../contribution/05-expression-engine.md).
+but can be configured to use any [expression engine](../extensions/05-expression-engine.md).
 
 :::
 
