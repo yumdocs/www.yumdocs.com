@@ -12,8 +12,8 @@ import {delimitersData, delimitersInput, unknownData, unknownInput, mismatchedDa
 :::note About the Playground
 
 The examples below are live to allow you to experiment. Most limitations come from the fact that the web editor
-for `input.docx` has limited editing capabilities compared to Microsoft Word. But note that you can download `input.docx`,
-make modifications in Word and run `yumdocs input.docx data.json output.docx` in a terminal window as explained
+for `input.docx` has few capabilities compared to Microsoft Word. But note that you can download `input.docx`,
+improve layouts in Word and run `yumdocs input.docx data.json output.docx` in a terminal window as explained
 in our [CLI Tutorial](../tutorials/04-cli-tutorial.md).
 
 :::
