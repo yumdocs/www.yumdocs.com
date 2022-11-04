@@ -17,16 +17,10 @@ Make sure you [understand expressions](./01-expressions.md) before experimenting
 
 :::note About the Playground
 
-The examples below are live to allow you to experiment.
-
-The playground is based on [ProseMirror](https://prosemirror.net/) to edit the input template,
-[CodeMirror](https://codemirror.net/) to edit json data,
-[docx.js](https://docx.js.org/) to serialize the content of ProseMirror into a Word file,
-and **Yumdocs** to merge this file, `input.docx` with `data.json`, and produce `output.docx`.
-All these files can be downloaded by clicking the respective buttons at the bottom of the playground.
-
-Most limitations come from the fact that ProseMirror has limited editing capabilities compared to Microsoft Word.
-But note that you can modify `input.docx` in Word and run `yumdocs input.docx data.json output.docx` in a terminal window as explained in our [CLI Tutorial](../tutorials/04-cli-tutorial.md).
+The examples below are live to allow you to experiment. Most limitations come from the fact that the web editor
+for `input.docx` has limited editing capabilities compared to Microsoft Word. But note that you can download `input.docx`,
+make modifications in Word and run `yumdocs input.docx data.json output.docx` in a terminal window as explained
+in our [CLI Tutorial](../tutorials/04-cli-tutorial.md).
 
 :::
 
