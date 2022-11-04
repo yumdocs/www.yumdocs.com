@@ -31,8 +31,9 @@ in a terminal window as explained in our [CLI Tutorial](../tutorials/04-cli-tuto
 
 :::
 
-The if tag is a statement (or instruction) followed by a condition, i.e. `{{#if <condition>}}`.
-In Yumdocs, statements are prefixed with a hash `#`. The condition is an expression which value is truthy or falsy
+The if tag is a statement (or instruction) followed by a condition between delimiters `{{` and `}}`, i.e. `{{#if <condition>}}`.
+In Yumdocs, statements are prefixed with a hash `#`, unless configured otherwise.
+The condition is an expression which value is truthy or falsy
 (for example, 1 is truthy and 0 is falsy. Also empty strings are falsy whereas non-empty strings are truthy).
 The `#if` tag is an opening tag, which requires a closing tag, i.e. `{{#endif}}`.
 Yumdocs includes the content between the opening tag and the closing tag if the condition is met.
