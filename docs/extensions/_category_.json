@@ -1,0 +1,8 @@
+{
+  "label": "Extensions",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Extend Yumdocs wih new parts, new tags, and new cultures."
+  }
+}
