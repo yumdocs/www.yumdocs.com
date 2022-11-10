@@ -41,7 +41,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.2.0",
     "@tsconfig/docusaurus": "^1.0.5",
-    "@yumdocs/yumdocs": "^0.1.8",
+    "@yumdocs/yumdocs": "^0.1.9",
     "typescript": "^4.7.4"
   },
   "browserslist": {
