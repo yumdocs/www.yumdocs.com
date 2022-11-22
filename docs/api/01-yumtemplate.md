@@ -80,6 +80,9 @@ await t.load(response.data);
 
 :::
 
+For more information about available options, refer to [zip.loadAsync](https://stuk.github.io/jszip/documentation/api_jszip/load_async.html)
+since most options are forwarded, except a string is evaluated as a file path in nodeJS.
+
 ## `render(data: Object|Blob|Buffer|File|string)`
 
 ```js showLineNumbers title=index.mjs
