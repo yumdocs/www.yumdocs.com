@@ -62,7 +62,23 @@ A template can be loaded from:
 - a [Blob object](https://developer.mozilla.org/en-US/docs/Web/API/Blob),
 - a [nodeJS Buffer](https://nodejs.org/api/buffer.html),
 - a [File object](https://developer.mozilla.org/en-US/docs/Web/API/File), or
-- a string, i.e. a url starting with http(s):// or a file path.
+- a string, i.e. a local file path, but not a remote url.
+
+:::tip http url
+
+You can use [axios](https://github.com/axios/axios) to load a template from a remote url as follows:
+
+```js
+import axios from 'axios';
+const response = await axios({
+    method: 'get',
+    responseType: 'blob',
+    url: 'https://templates/input.docx'
+});
+await t.load(response.data);
+```
+
+:::
 
 ## `render(data: Object|Blob|Buffer|File|string)`
 
