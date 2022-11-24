@@ -20,7 +20,7 @@
     "@docusaurus/core": "^2.2.0",
     "@docusaurus/preset-classic": "^2.2.0",
     "@mdx-js/react": "^1.6.22",
-    "@yumdocs/yumdocs": "^0.1.15",
+    "@yumdocs/yumdocs": "^0.1.16",
     "buffer": "^6.0.3",
     "clsx": "^1.2.1",
     "codemirror": "^6.0.1",
