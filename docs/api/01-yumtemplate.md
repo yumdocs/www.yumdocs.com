@@ -73,7 +73,7 @@ import axios from 'axios';
 const response = await axios({
     method: 'get',
     responseType: 'blob',
-    url: 'https://templates/input.docx'
+    url: 'https://localhost/templates/input.docx'
 });
 await t.load(response.data);
 ```
@@ -83,13 +83,30 @@ await t.load(response.data);
 For more information about available options, refer to [zip.loadAsync](https://stuk.github.io/jszip/documentation/api_jszip/load_async.html)
 since most options are forwarded, except a string is evaluated as a file path in nodeJS.
 
-## `render(data: Object|Blob|Buffer|File|string)`
+## `render(data: Object)`
+
+The render method merges the template loaded into a YumTemplate instance with an object.
+The following line of code replaces any occurrence of `{{field}}` with its value, `Anything you see fit`.
 
 ```js showLineNumbers title=index.mjs
 await t.render({field: 'Anything you see fit'});
 ```
 
+:::tip http url
 
+You can use [axios](https://github.com/axios/axios) to render a json object from a restfull API as follows:
+
+```js
+import axios from 'axios';
+const response = await axios({
+    method: 'get',
+    responseType: 'json', // default
+    url: 'https://localhost/data/1234567890'
+});
+await t.render(response.data);
+```
+
+:::
 
 ## `saveAs(options: Object|string)`
 
