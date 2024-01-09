@@ -30,14 +30,10 @@ run `node --version` from a terminal window to confirm installation.
 Create a project directory, make it your working directory, and run from a terminal window:
 
 <TerminalWindow>
-
-```
-npm init -y
-npm i typescript
-npm i ts-node
+npm init -y<br/>
+npm i typescript<br/>
+npm i ts-node<br/>
 npm i @yumdocs/yumdocs
-```
-
 </TerminalWindow>
 
 :::tip Tip
@@ -91,11 +87,7 @@ await t.saveAs('./output.docx');
 5) Open a terminal window in this project directory and run:
 
 <TerminalWindow>
-
-```
 node --loader ts-node/esm index.ts
-```
-
 </TerminalWindow>
 
 6) `output.docx` has been generated and the `{{field}}` placeholder has been replaced with `Anything you see fit`.

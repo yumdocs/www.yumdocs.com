@@ -30,11 +30,7 @@ run `node --version` from a terminal window to confirm installation.
 Open a terminal window and run:
 
 <TerminalWindow>
-
-```
 npm i -g @yumdocs/yumdocs-cli
-```
-
 </TerminalWindow>
 
 ## Getting started
@@ -56,11 +52,7 @@ npm i -g @yumdocs/yumdocs-cli
 3) Open a terminal window in the project directory and run:
 
 <TerminalWindow>
-
-```
 yumdocs input.docx data.json output.docx
-```
-
 </TerminalWindow>
 
 4) `output.docx` has been generated and the `{{field}}` placeholder has been replaced with `Anything you see fit`.

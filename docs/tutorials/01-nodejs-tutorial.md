@@ -30,12 +30,8 @@ run `node --version` from a terminal window to confirm installation.
 Create a project directory, make it your working directory, and run from a terminal window:
 
 <TerminalWindow>
-
-```
-npm init -y
+npm init -y<br/>
 npm i @yumdocs/yumdocs
-```
-
 </TerminalWindow>
 
 ## Getting started
@@ -59,11 +55,7 @@ await t.saveAs('./output.docx');
 3) Open a terminal window in this project directory and run:
 
 <TerminalWindow>
-
-```
 node index.mjs
-```
-
 </TerminalWindow>
 
 :::tip Tip

@@ -222,11 +222,7 @@ function HelloCodeTitle(props) {
 import TerminalWindow from '@site/src/components/TerminalWindow'
 
 <TerminalWindow>
-
-<pre>
 console.log('hello');
-</pre>
-
 </TerminalWindow>
 
 ## WordWindow

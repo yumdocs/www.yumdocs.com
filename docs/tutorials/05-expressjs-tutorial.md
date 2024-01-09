@@ -30,13 +30,9 @@ run `node --version` from a terminal window to confirm installation.
 Create a project directory, make it your working directory, and run from a terminal window:
 
 <TerminalWindow>
-
-```
-npm init -y
-npm i express
+npm init -y<br/>
+npm i express<br/>
 npm i @yumdocs/yumdocs
-```
-
 </TerminalWindow>
 
 ## Getting started
@@ -86,11 +82,7 @@ app.listen(3000, () => {
 3) Open a terminal window in this project directory and run:
 
 <TerminalWindow>
-
-```
 node index.mjs
-```
-
 </TerminalWindow>
 
 :::tip Tip
@@ -102,11 +94,7 @@ Change the value of **"main"** for `index.mjs` in `package.json` to run `node .`
 4) Open another terminal window (keep the server running) and run the following request to simulate a browser:
 
 <TerminalWindow>
-
-```text
-curl -X POST http://localhost:3000/yumdocs -H 'Content-Type: application/json' -d '{"field":"Anything you see fit"}'
-```
-
+curl -X POST http://localhost:3000/yumdocs -H 'Content-Type: application/json' -d '\{"field":"Anything you see fit"}'
 </TerminalWindow>
 
 5) `output.docx` has been generated and the `{{field}}` placeholder has been replaced with `Anything you see fit`.
