@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const projectName = 'dev.yumdocs.com';
+const projectName = 'www.yumdocs.com';
 const organizationName = 'yumdocs';
 
 const themes = require('prism-react-renderer').themes;

@@ -1,5 +1,5 @@
 {
-  "name": "dev-yumdocs-com",
+  "name": "www-yumdocs-com",
   "version": "0.1.20",
   "private": true,
   "scripts": {
@@ -18,8 +18,8 @@
   "dependencies": {
     "@codemirror/lang-json": "^6.0.1",
     "@codemirror/lint": "^6.4.2",
-    "@docusaurus/core": "^3.1.0",
-    "@docusaurus/preset-classic": "^3.1.0",
+    "@docusaurus/core": "^3.1.1",
+    "@docusaurus/preset-classic": "^3.1.1",
     "@mdx-js/react": "^3.0.0",
     "@yumdocs/yumdocs": "^0.1.17",
     "buffer": "^6.0.3",
@@ -41,9 +41,9 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.1.0",
-    "@docusaurus/tsconfig": "^3.1.0",
-    "@docusaurus/types": "^3.1.0",
+    "@docusaurus/module-type-aliases": "^3.1.1",
+    "@docusaurus/tsconfig": "^3.1.1",
+    "@docusaurus/types": "^3.1.1",
     "typescript": "^5.3.3"
   },
   "browserslist": {
