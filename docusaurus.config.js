@@ -151,6 +151,25 @@ const config = {
           darkTheme: darkCodeTheme,
         },
       }),
+  /*
+  plugins: [
+    () => ({
+      name: 'lottie-webpack-plugin',
+      configureWebpack: () => ({
+        module: {
+          rules: [
+            {
+              test: /\.json$/, // <--- or /\.json$/ if you want generic
+              type: 'json'
+              // No loader needed: 'type: json' is supported in webpack 5
+            },
+          ],
+        },
+      }),
+    }),
+  ],
+  */
+
 };
 
 module.exports = config;

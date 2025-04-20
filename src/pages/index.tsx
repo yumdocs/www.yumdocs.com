@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import clsx from 'clsx';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Lottie from '@site/src/components/Lottie';
 
 import styles from './index.module.css';
 
@@ -27,8 +27,14 @@ function HomepageHeader() {
               </div>
               <div className="col col--6">
                   <div className="lottie-wrapper">
-                      {/* lottie.png is actually a json file, but it would not load properly unless renamed into .png */}
-                      <Lottie path={require('@site/static/img/lottie.png').default}/>
+                      <BrowserOnly>
+                          {() => {
+                              // It's safe to require and render Lottie here - only runs in browser
+                              const Lottie = require('@site/src/components/Lottie').default;
+                              const lottiePath = require('@site/static/img/lottie.png').default;
+                              return <Lottie path={lottiePath} />;
+                          }}
+                      </BrowserOnly>
                   </div>
               </div>
           </div>
