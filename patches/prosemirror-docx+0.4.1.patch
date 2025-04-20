@@ -1,0 +1,40 @@
+diff --git a/node_modules/prosemirror-docx/dist/esm/index.js b/node_modules/prosemirror-docx/dist/esm/index.js
+index 73ec08e..f8e8690 100644
+--- a/node_modules/prosemirror-docx/dist/esm/index.js
++++ b/node_modules/prosemirror-docx/dist/esm/index.js
+@@ -1,4 +1,4 @@
+-export { DocxSerializerState, DocxSerializer } from './serializer';
+-export { defaultDocxSerializer, defaultNodes, defaultMarks } from './schema';
+-export { writeDocx, createDocFromState } from './utils';
++export { DocxSerializerState, DocxSerializer } from './serializer.js';
++export { defaultDocxSerializer, defaultNodes, defaultMarks } from './schema.js';
++export { writeDocx, createDocFromState } from './utils.js';
+ //# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/node_modules/prosemirror-docx/dist/esm/schema.js b/node_modules/prosemirror-docx/dist/esm/schema.js
+index 558bdd9..7915929 100644
+--- a/node_modules/prosemirror-docx/dist/esm/schema.js
++++ b/node_modules/prosemirror-docx/dist/esm/schema.js
+@@ -1,6 +1,6 @@
+ import { HeadingLevel, ShadingType } from 'docx';
+-import { DocxSerializer } from './serializer';
+-import { getLatexFromNode } from './utils';
++import { DocxSerializer } from './serializer.js';
++import { getLatexFromNode } from './utils.js';
+ export const defaultNodes = {
+     text(state, node) {
+         var _a;
+diff --git a/node_modules/prosemirror-docx/dist/esm/serializer.js b/node_modules/prosemirror-docx/dist/esm/serializer.js
+index ada31a4..47dd52a 100644
+--- a/node_modules/prosemirror-docx/dist/esm/serializer.js
++++ b/node_modules/prosemirror-docx/dist/esm/serializer.js
+@@ -1,7 +1,7 @@
+ import { Paragraph, TextRun, ExternalHyperlink, MathRun, Math, TabStopType, TabStopPosition, SequentialIdentifier, Bookmark, ImageRun, AlignmentType, Table, TableRow, TableCell, InternalHyperlink, SimpleField, FootnoteReferenceRun, } from 'docx';
+ import { imageDimensionsFromData } from 'image-dimensions';
+-import { createNumbering } from './numbering';
+-import { createDocFromState, createShortId } from './utils';
++import { createNumbering } from './numbering.js';
++import { createDocFromState, createShortId } from './utils.js';
+ const MAX_IMAGE_WIDTH = 600;
+ function createReferenceBookmark(id, kind, before, after) {
+     const textBefore = before ? [new TextRun(before)] : [];
